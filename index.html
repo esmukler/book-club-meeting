@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Books and conversation prompts from our book club."
+    />
+    <title>Book Club — Our Books</title>
+    <link rel="stylesheet" href="assets/styles.css" />
+    <script src="assets/book-club.js" defer></script>
+    <script src="assets/books.js" defer></script>
+    <script src="assets/index.js" defer></script>
+  </head>
+  <body class="index-page">
+    <main class="site-shell">
+      <header class="index-header">
+        <p class="eyebrow">Welcome to our</p>
+        <h1>Book Club</h1>
+        <p class="lede">A shelf of stories, opinions, and good conversation.</p>
+      </header>
+
+      <section class="library" aria-labelledby="library-heading">
+        <div class="section-heading">
+          <p class="section-number" aria-hidden="true">01</p>
+          <h2 id="library-heading">The books we’ve read</h2>
+        </div>
+        <div id="book-list" class="book-list"></div>
+        <p id="empty-library" class="empty-state" hidden>
+          Our first book will be added soon.
+        </p>
+      </section>
+    </main>
+  </body>
+</html>

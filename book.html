@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Book club ratings and shuffled discussion questions."
+    />
+    <title>Book Club Meeting</title>
+    <link rel="stylesheet" href="assets/styles.css" />
+    <script src="assets/book-club.js" defer></script>
+    <script src="assets/books.js" defer></script>
+    <script src="assets/book.js" defer></script>
+  </head>
+  <body class="meeting-page">
+    <main class="site-shell meeting-shell">
+      <nav class="breadcrumb" aria-label="Book navigation">
+        <a href="index.html">
+          <span aria-hidden="true">←</span>
+          All books
+        </a>
+      </nav>
+
+      <section id="book-not-found" class="not-found" hidden>
+        <p class="eyebrow">This page has lost its place</p>
+        <h1>We couldn’t find that book.</h1>
+        <p>Return to the shelf and choose one of the books we’ve read.</p>
+        <a class="text-link" href="index.html">Browse all books</a>
+      </section>
+
+      <article id="meeting-content" hidden>
+        <header class="meeting-header">
+          <p class="eyebrow">Tonight’s discussion</p>
+          <h1 id="book-title"></h1>
+          <p id="book-author" class="book-author"></p>
+          <p class="meeting-instruction">Choose a card when the room is ready.</p>
+        </header>
+
+        <div class="reveal-grid">
+          <section class="reveal-card">
+            <div class="card-inner">
+              <div class="card-face card-front" aria-hidden="false">
+                <button
+                  id="ratings-toggle"
+                  class="reveal-button"
+                  type="button"
+                  aria-expanded="false"
+                  aria-controls="ratings-panel"
+                >
+                  <span class="card-kicker">The room has spoken</span>
+                  <span class="card-title">Reveal the ratings</span>
+                  <span class="card-action">Flip for results <span aria-hidden="true">→</span></span>
+                </button>
+              </div>
+              <div
+                id="ratings-panel"
+                class="card-face card-back ratings-back"
+                role="region"
+                aria-label="Rating results"
+                aria-hidden="true"
+                tabindex="-1"
+                inert
+              >
+                <div class="card-back-header">
+                  <p class="card-back-label">Rating results</p>
+                  <button id="ratings-back" class="back-link" type="button">
+                    Flip back
+                    <span aria-hidden="true">↩</span>
+                  </button>
+                </div>
+                <div class="rating-summary" aria-live="polite">
+                  <p><strong id="rating-average">—</strong> average</p>
+                  <p><strong id="rating-total">—</strong> responses</p>
+                </div>
+                <div
+                  id="rating-histogram"
+                  class="histogram"
+                  aria-label="Star rating distribution"
+                ></div>
+              </div>
+            </div>
+          </section>
+
+          <section class="reveal-card">
+            <div class="card-inner">
+              <div class="card-face card-front" aria-hidden="false">
+                <button
+                  id="question-toggle"
+                  class="reveal-button"
+                  type="button"
+                  aria-expanded="false"
+                  aria-controls="question-panel"
+                >
+                  <span class="card-kicker">Pass it around</span>
+                  <span class="card-title">Shuffle a question</span>
+                  <span class="card-action">Flip for a prompt <span aria-hidden="true">→</span></span>
+                </button>
+              </div>
+              <div
+                id="question-panel"
+                class="card-face card-back question-panel"
+                role="region"
+                aria-label="Discussion question"
+                aria-hidden="true"
+                tabindex="-1"
+                inert
+              >
+                <div class="card-back-header">
+                  <p id="question-count" class="question-count"></p>
+                  <button id="question-back" class="back-link" type="button">
+                    Flip back
+                    <span aria-hidden="true">↩</span>
+                  </button>
+                </div>
+                <blockquote id="question-text" aria-live="polite"></blockquote>
+                <div class="question-controls">
+                  <button
+                    id="previous-question"
+                    class="secondary-button"
+                    type="button"
+                    disabled
+                  >
+                    <span aria-hidden="true">←</span>
+                    Previous question
+                  </button>
+                  <button id="next-question" class="secondary-button" type="button">
+                    Next question
+                    <span aria-hidden="true">→</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </article>
+    </main>
+  </body>
+</html>
